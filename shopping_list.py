@@ -38,8 +38,14 @@ mensagens de erro apropriadas para orientar o usuário.
 10-Encerramento do Programa: O usuário deve poder encerrar o programa de forma adequada, escolhendo a opção de 
 saída no menu."""
 
+import os
+
+def cleanin():
+    os.system('cls')
 def shopping_list():
     while True:
+        cleanin()
+        print("\n----------------------------------------")
         print("Faça sua lista de compras! Selecione a opção desejada.")
         print("1-Adicionar produto")
         print("2-Remover produto")
@@ -57,26 +63,37 @@ def shopping_list():
         if user_input == "1":
             name_prdt = input("Digite o nome do produto: ")
             number_prdt = float(input("Digite a quantidade do produto: "))
-            unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
+            while True:
+                unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
+                if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
+                    print("\nOpção inválida. Tente novamente.")
+                    continue
+                break
             description_prdt = input("Descreva o produto: ")
 
             while True:
                 print("Deseja adicionar mais produtos?")
                 add_prdt = input("Digite [1] para SIM, e [2] para NÃO: ")
                 if add_prdt not in ("1", "2"):
-                    print("Opção inválida. Tente novamente.")
+                    print("\nOpção inválida. Tente novamente.")
                     break
+
                 if add_prdt == "1":
                     name_prdt = input("Digite o nome do produto: ")
                     number_prdt = float(input("Digite a quantidade do produto: "))
                     unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
+                    if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
+                        print("\nOpção inválida. Tente novamente.")
+                        continue
                     description_prdt = input("Descreva o produto: ")
                 else:
                     break
+
         elif user_input == "2":
             input("Qual produto deseja remover?: ")
-        elif user_input == "3":
+        else:
             input("Qual o nome do produto que deseja pesquisar?: ")
+
 
 
 
