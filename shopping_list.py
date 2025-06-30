@@ -54,6 +54,27 @@ def shopping_list():
             print("Opção inválida. Tente novamente.")
             continue
 
+        if user_input == "1":
+            name_prdt = input("Digite o nome do produto: ")
+            number_prdt = float(input("Digite a quantidade do produto: "))
+            unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
+            description_prdt = input("Descreva o produto: ")
+
+            while True:
+                print("Deseja adicionar mais produtos?")
+                add_prdt = input("Digite [1] para SIM, e [2] para NÃO: ")
+                if add_prdt not in ("1", "2"):
+                    print("Opção inválida. Tente novamente.")
+                    break
+                if add_prdt == "1":
+                    name_prdt = input("Digite o nome do produto: ")
+                    number_prdt = float(input("Digite a quantidade do produto: "))
+                    unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
+                    description_prdt = input("Descreva o produto: ")
+                else:
+                    break
+
+shopping_list()
 
 
 
