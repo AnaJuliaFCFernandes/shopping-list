@@ -38,14 +38,25 @@ mensagens de erro apropriadas para orientar o usuário.
 10-Encerramento do Programa: O usuário deve poder encerrar o programa de forma adequada, escolhendo a opção de 
 saída no menu."""
 
+def shopping_list():
+    while True:
+        print("Faça sua lista de compras! Selecione a opção desejada.")
+        print("1-Adicionar produto")
+        print("2-Remover produto")
+        print("3-Pesquisar produtos")
+        print("4-Sair do programa")
 
-print("Faça sua lista de compras! Selecione a opção desejada.")
-print("1-Adicionar produto")
-print("2-Remover produto")
-print("3-Pesquisar produtos")
-print("4-Sair do programa")
+        user_input = input("Digite a opção desejada: ")
+        if (user_input == "4"):
+            print("Encerrando o programa, obrigada por usar!")
+            break
+        if user_input not in ("1", "2", "3"):
+            print("Opção inválida. Tente novamente.")
+            continue
 
-user_input = input("Digite a opção desejada: ")
+
+
+
 
 
 
