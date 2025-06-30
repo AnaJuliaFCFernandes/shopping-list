@@ -73,6 +73,15 @@ def shopping_list():
                     description_prdt = input("Descreva o produto: ")
                 else:
                     break
+        elif user_input == "2":
+            input("Qual produto deseja remover?: ")
+        elif user_input == "3":
+            input("Qual o nome do produto que deseja pesquisar?: ")
+
+
+
+
+
 
 shopping_list()
 
