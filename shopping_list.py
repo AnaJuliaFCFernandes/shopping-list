@@ -66,45 +66,37 @@ def shopping_list():
 
 
         if user_input == "1":
-            name_prdt = input("Digite o nome do produto: ")
-            number_prdt = float(input("Digite a quantidade do produto: "))
             while True:
-                unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
-                if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
-                    print("\nOpção inválida. Tente novamente.")
-                    continue
-                break #sai do loop se a unidade for válida
-            description_prdt = input("Descreva o produto: ")
-
-            produto = {
-                "nome": name_prdt,
-                "quantidade": number_prdt,
-                "unidade": unit_of_measure_prdt,
-                "descricao": description_prdt
-            }
-
-            lista_de_compras.append(produto)
-            print(f"\n O produto '{name_prdt}' adicionado a lista!")
-            time.sleep(2)  # Pausa para o usuário ler a confirmação
-
-            while True:
-                print("Deseja adicionar mais produtos?")
-                add_prdt = input("Digite [1] para SIM, e [2] para NÃO: ")
-                if add_prdt not in ("1", "2"):
-                    print("\nOpção inválida. Tente novamente.")
-                    break
-
-                if add_prdt == "1":
-                    name_prdt = input("Digite o nome do produto: ")
-                    number_prdt = float(input("Digite a quantidade do produto: "))
+                name_prdt = input("Digite o nome do produto: ")
+                number_prdt = float(input("Digite a quantidade do produto: "))
+                while True:
                     unit_of_measure_prdt = input("Qual a unidade de medida do produto (g, Kg, mL, L, cm, e m): ")
                     if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
                         print("\nOpção inválida. Tente novamente.")
                         continue
+                    break #sai do loop se a unidade for válida
+                description_prdt = input("Descreva o produto: ")
 
-                    description_prdt = input("Descreva o produto: ")
-                else:
+                produto = {
+                    "nome": name_prdt,
+                    "quantidade": number_prdt,
+                    "unidade": unit_of_measure_prdt,
+                    "descricao": description_prdt
+                }
+
+                lista_de_compras.append(produto)
+                print(f"\n O produto '{name_prdt}' adicionado a lista!")
+                time.sleep(2)  # Pausa para o usuário ler a confirmação
+
+                print("Deseja adicionar mais produtos?")
+                add_prdt = input("Digite [1] para SIM, e [2] para NÃO: ")
+                if add_prdt not in ("1", "2"):
+                    print("\nOpção inválida. Tente novamente.")
+
+                elif add_prdt == "2":
                     break
+
+
             #cleaning()
 
         elif user_input == "2":
@@ -112,11 +104,6 @@ def shopping_list():
 
         else:
             input("Qual o nome do produto que deseja pesquisar?: ")
-
-
-
-
-
 
 
 shopping_list()
