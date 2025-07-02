@@ -39,12 +39,15 @@ mensagens de erro apropriadas para orientar o usuário.
 saída no menu."""
 
 import os
+import time
 
-def cleanin():
+
+def cleaning():
     os.system('cls')
 def shopping_list():
+    lista_de_compras = []
     while True:
-        cleanin()
+        cleaning()
         print("\n----------------------------------------")
         print("Faça sua lista de compras! Selecione a opção desejada.")
         print("1-Adicionar produto")
@@ -58,7 +61,9 @@ def shopping_list():
             break
         if user_input not in ("1", "2", "3"):
             print("Opção inválida. Tente novamente.")
+            time.sleep(2)
             continue
+
 
         if user_input == "1":
             name_prdt = input("Digite o nome do produto: ")
@@ -68,8 +73,19 @@ def shopping_list():
                 if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
                     print("\nOpção inválida. Tente novamente.")
                     continue
-                break
+                break #sai do loop se a unidade for válida
             description_prdt = input("Descreva o produto: ")
+
+            produto = {
+                "nome": name_prdt,
+                "quantidade": number_prdt,
+                "unidade": unit_of_measure_prdt,
+                "descricao": description_prdt
+            }
+
+            lista_de_compras.append(produto)
+            print(f"\n O produto '{name_prdt}' adicionado a lista!")
+            time.sleep(2)  # Pausa para o usuário ler a confirmação
 
             while True:
                 print("Deseja adicionar mais produtos?")
@@ -85,12 +101,15 @@ def shopping_list():
                     if unit_of_measure_prdt not in ("g", "Kg", 'mL', 'L', 'cm', 'm'):
                         print("\nOpção inválida. Tente novamente.")
                         continue
+
                     description_prdt = input("Descreva o produto: ")
                 else:
                     break
+            #cleaning()
 
         elif user_input == "2":
             input("Qual produto deseja remover?: ")
+
         else:
             input("Qual o nome do produto que deseja pesquisar?: ")
 
