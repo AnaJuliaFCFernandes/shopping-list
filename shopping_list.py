@@ -44,11 +44,26 @@ import time
 
 def cleaning():
     os.system('cls')
+
 def shopping_list():
     lista_de_compras = []
+
+
+
+
     while True:
         cleaning()
-        print("\n----------------------------------------")
+
+        if not lista_de_compras:
+            print("Sua lista está vazia.")
+        else:
+            print("Aqui está sua lista de compras!")
+            for i, item in enumerate(lista_de_compras, start=1):
+                print(
+                    f"{i}. {item['nome']} ({item['quantidade']} {item['unidade']}) - Descrição: {item['descricao']}")
+            #input("\nPressione ENTER para ir ao menu principal.")
+
+        print("\n----------------------------------------------------")
         print("Faça sua lista de compras! Selecione a opção desejada.")
         print("1-Adicionar produto")
         print("2-Remover produto")
@@ -64,7 +79,6 @@ def shopping_list():
             time.sleep(2)
             continue
 
-
         if user_input == "1":
             while True:
                 name_prdt = input("Digite o nome do produto: ")
@@ -77,14 +91,14 @@ def shopping_list():
                     break #sai do loop se a unidade for válida
                 description_prdt = input("Descreva o produto: ")
 
-                produto = {
+                product = {
                     "nome": name_prdt,
                     "quantidade": number_prdt,
                     "unidade": unit_of_measure_prdt,
                     "descricao": description_prdt
                 }
 
-                lista_de_compras.append(produto)
+                lista_de_compras.append(product)
                 print(f"\n O produto '{name_prdt}' adicionado a lista!")
                 time.sleep(2)  # Pausa para o usuário ler a confirmação
 
@@ -97,7 +111,7 @@ def shopping_list():
                     break
 
 
-            #cleaning()
+            cleaning()
 
         elif user_input == "2":
             input("Qual produto deseja remover?: ")
