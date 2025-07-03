@@ -113,7 +113,16 @@ def shopping_list():
             cleaning()
 
         elif user_input == "2":
-            input("Qual produto deseja remover?: ")
+            for i, item in enumerate(lista_de_compras, start=1):
+                print(
+                    f"{i}. {item['nome']} ({item['quantidade']} {item['unidade']}) - Descrição: {item['descricao']}")
+
+            remove = int(input("Digite o número do produto que deseja remover: "))
+            ID_remove = remove - 1
+            del lista_de_compras[ID_remove]
+            for i, item in enumerate(lista_de_compras, start=1):
+                print(
+                    f"{i}. {item['nome']} ({item['quantidade']} {item['unidade']}) - Descrição: {item['descricao']}")
 
         else:
             input("Qual o nome do produto que deseja pesquisar?: ")
