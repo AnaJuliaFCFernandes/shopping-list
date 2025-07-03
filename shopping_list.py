@@ -61,7 +61,6 @@ def shopping_list():
             for i, item in enumerate(lista_de_compras, start=1):
                 print(
                     f"{i}. {item['nome']} ({item['quantidade']} {item['unidade']}) - Descrição: {item['descricao']}")
-            #input("\nPressione ENTER para ir ao menu principal.")
 
         print("\n----------------------------------------------------")
         print("Faça sua lista de compras! Selecione a opção desejada.")
